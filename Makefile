@@ -7,7 +7,7 @@ RM = rm -f
 FILES = main
 FILES_B=
 UTILS_FILE = lst_utils verif_utils #move_utils
-INST_FILE = ft_push ft_swap ft_rotate
+INST_FILE = ft_push ft_swap ft_rotate ft_rrotate
 # ALGO_FILE = random
 
 #tout les repertoire 

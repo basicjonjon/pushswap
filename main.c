@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:54:07 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/22 17:32:40 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/07/22 19:02:15 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_info	*init_struct(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_info	*info_lst;
+	t_info	*info;
 	int		i;
 	int		y;
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 		return (1);
 	y = 0;
 	i = 0;
-	info_lst = init_struct(argc, argv);
+	info = init_struct(argc, argv);
 	
 	return (0);
 }

@@ -1,53 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_rrotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 13:16:18 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/22 19:01:56 by jle-doua         ###   ########.fr       */
+/*   Created: 2024/07/22 18:47:34 by jle-doua          #+#    #+#             */
+/*   Updated: 2024/07/22 18:53:50 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_swap_a(t_info *info, char mod)
+int	ft_rrotate_a(t_info *info, char mod)
 {
+	int	i;
 	int	tmp_value;
 
 	if (info->lst_a_count <= 1)
 		return (-1);
-	tmp_value = info->lst_a[0];
-	info->lst_a[0] = info->lst_a[1];
-	info->lst_a[1] = tmp_value;
+	i = info->lst_a_count - 1;
+	tmp_value = info->lst_a[i];
+	while (i >= 0)
+	{
+		info->lst_a[i] = info->lst_a[i - 1];
+		i--;
+	}
+	info->lst_a[0] = tmp_value;
 	if (mod == 'b')
 		return (1);
-	ft_printf("sa\n");
+	ft_printf("rra");
 	return (1);
 }
 
-int	ft_swap_b(t_info *info, char mod)
+int	ft_rrotate_b(t_info *info, char mod)
 {
+	int	i;
 	int	tmp_value;
 
 	if (info->lst_b_count <= 1)
 		return (-1);
-	tmp_value = info->lst_b[0];
-	info->lst_b[0] = info->lst_b[1];
-	info->lst_b[1] = tmp_value;
+	i = info->lst_b_count - 1;
+	tmp_value = info->lst_b[i];
+	while (i >= 0)
+	{
+		info->lst_b[i] = info->lst_b[i - 1];
+		i--;
+	}
+	info->lst_b[0] = tmp_value;
 	if (mod == 'b')
 		return (1);
-	ft_printf("sb\n");
+	ft_printf("rrb");
 	return (1);
 }
 
-int	ft_swap_all(t_info *info)
+int	ft_rrotate_all(t_info *info)
 {
 	if (info->lst_a_count <= 1 || info->lst_b_count <= 1)
 		return (-1);
-	ft_swap_a(info, 'b');
-	ft_swap_b(info, 'b');
-	ft_printf("ss\n");
+	ft_rrotate_a(info, 'b');
+	ft_rrotate_b(info, 'b');
+	ft_printf("rrr");
 	return (1);
 }

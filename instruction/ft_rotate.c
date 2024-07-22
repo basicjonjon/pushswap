@@ -6,68 +6,61 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 13:06:46 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/12 17:14:09 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/07/22 18:43:47 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_rotate(int *lst, int lst_count, char lst_name)
+int	ft_rotate_a(t_info *info, char mod)
 {
 	int	i;
 	int	tmp_value;
 	
-	if (lst_count <= 1)
+	if (info->lst_a_count <= 1)
 		return (-1);
 	i = 1;
-	tmp_value = lst[0];
-	while (i < lst_count)
+	tmp_value = info->lst_a[0];
+	while (i < info->lst_a_count)
 	{
-		lst[i - 1] = lst[i];
+		info->lst_a[i - 1] = info->lst_a[i];
 		i++;
 	}
-	lst[i - 1] = tmp_value;
-	if (lst_name == 'a' || lst_name == 'b')
-		ft_printf("r%c\n", lst_name);
-	return (0);
+	info->lst_a[i - 1] = tmp_value;
+	if (mod == 'b')
+		return (1);
+	ft_printf("ra\n");
+	return (1);
 }
 
-int	ft_rotate_all(int *lst_a, int *lst_b, int lst_count_a, int lst_count_b)
-{
-	if (lst_count_a <= 1 || lst_count_b <= 1)
-		return (-1);
-	ft_rotate(lst_a, lst_count_a, 'c');
-	ft_rotate(lst_b, lst_count_b, 'c');
-	ft_printf("rr");
-	return (0);
-}
-
-int	ft_rrotate(int *lst, int lst_count, char lst_name)
+int	ft_rotate_b(t_info *info, char mod)
 {
 	int	i;
 	int	tmp_value;
 	
-	if (lst_count <= 1)
+	if (info->lst_b_count <= 1)
 		return (-1);
-	i = lst_count - 1;
-	tmp_value = lst[i];
-	while (i >= 0)
+	i = 1;
+	tmp_value = info->lst_b[0];
+	while (i < info->lst_b_count)
 	{
-		lst[i] = lst[i - 1];
-		i--;
+		info->lst_b[i - 1] = info->lst_b[i];
+		i++;
 	}
-	lst[0] = tmp_value;
-	if (lst_name == 'a' || lst_name == 'b')
-		ft_printf("rr%c\n", lst_name);
+	info->lst_b[i - 1] = tmp_value;
+	if (mod == 'b')
+		return (1);
+	ft_printf("rb\n");
+	return (1);
+}
+
+int	ft_rotate_all(t_info *info)
+{
+	if (info->lst_b_count <= 1 || info->lst_b_count <= 1)
+		return (-1);
+	ft_rotate_a(info, 'b');
+	ft_rotate_b(info, 'b');
+	ft_printf("rr\n");
 	return (0);
 }
 
-int	ft_rrotate_all(int *lst_a, int *lst_b, int lst_count_a, int lst_count_b)
-{
-	if (lst_count_a <= 1 || lst_count_b <= 1)
-		return (-1);
-	ft_rrotate(lst_a, lst_count_a, 'c');
-	ft_rrotate(lst_b, lst_count_b, 'c');
-	ft_printf("rrr");
-	return (0);
-}
