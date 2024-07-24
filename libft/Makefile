@@ -6,7 +6,7 @@
 #    By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 15:15:00 by jle-doua          #+#    #+#              #
-#    Updated: 2024/07/08 13:49:18 by jle-doua         ###   ########.fr        #
+#    Updated: 2024/07/24 13:00:40 by jle-doua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,7 @@ $(OBJS_DIR):
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_B)
+	$(RM) -rf $(OBJS_DIR)
 
 fclean: clean
 	$(RM) $(NAME) $(EXE) main.o

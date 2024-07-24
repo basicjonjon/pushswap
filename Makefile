@@ -6,7 +6,7 @@ RM = rm -f
 
 FILES = main
 FILES_B=
-UTILS_FILE = lst_utils verif_utils #move_utils
+UTILS_FILE = lst_utils verif_utils move_utils
 INST_FILE = ft_push ft_swap ft_rotate ft_rrotate
 # ALGO_FILE = random
 
@@ -54,7 +54,7 @@ $(LIBFT):
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJS) $(UTILS_OBJ) $(INST_OBJ)
+	$(RM) -rf $(OBJS_DIR)
 	make clean -C $(LIBFT_PATH)
 
 fclean: clean

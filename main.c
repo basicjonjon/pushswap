@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:54:07 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/22 19:02:15 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/07/24 13:21:08 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ t_info	*init_struct(int argc, char **argv)
 	res->action_count = 0;
 	res->argc = argc;
 	res->action_count = 0;
-	res->lower = ft_get_lower(res->lst_a, res->lst_a_count);
-	res->upper = ft_get_upper(res->lst_a, res->lst_a_count);
+	res->lower = ft_get_lower(res);
+	res->upper = ft_get_upper(res);
 	return (res);
 }
 
@@ -40,6 +40,10 @@ int	main(int argc, char **argv)
 	y = 0;
 	i = 0;
 	info = init_struct(argc, argv);
-	
+	print_lst(info);
+	ft_push_b(info);
+	print_lst(info);
+
+	printf("[%i]\n",info->lst_a[ft_get_worth_move(info)]);
 	return (0);
 }
