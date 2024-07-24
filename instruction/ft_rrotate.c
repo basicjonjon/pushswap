@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:47:34 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/22 18:53:50 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/07/24 17:08:48 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_rrotate_a(t_info *info, char mod)
 	info->lst_a[0] = tmp_value;
 	if (mod == 'b')
 		return (1);
-	ft_printf("rra");
+	ft_printf("rra\n");
 	return (1);
 }
 
@@ -50,7 +50,7 @@ int	ft_rrotate_b(t_info *info, char mod)
 	info->lst_b[0] = tmp_value;
 	if (mod == 'b')
 		return (1);
-	ft_printf("rrb");
+	ft_printf("rrb\n");
 	return (1);
 }
 
@@ -60,6 +60,6 @@ int	ft_rrotate_all(t_info *info)
 		return (-1);
 	ft_rrotate_a(info, 'b');
 	ft_rrotate_b(info, 'b');
-	ft_printf("rrr");
+	ft_printf("rrr\n");
 	return (1);
 }

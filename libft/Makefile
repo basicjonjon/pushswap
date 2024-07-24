@@ -6,7 +6,7 @@
 #    By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 15:15:00 by jle-doua          #+#    #+#              #
-#    Updated: 2024/07/24 13:00:40 by jle-doua         ###   ########.fr        #
+#    Updated: 2024/07/24 15:34:07 by jle-doua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,30 +83,27 @@ MAIN = main
 EXE = test
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c
-	$(CC) $(CFLAGS) -c -o $@ $< 
+	@$(CC) $(CFLAGS) -c -o $@ $< 
 
 
-$(NAME): $(LIBFT) $(OBJS_DIR) $(OBJS)
-	ar rcs $(NAME) $(OBJS)
-
-$(LIBFT):
-	make -C $(LIBFT_PATH) all
+$(NAME): $(OBJS_DIR) $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 
 $(OBJS_DIR):
-	mkdir -p $(OBJS_DIR)
+	@mkdir -p $(OBJS_DIR)
 
 all: $(NAME)
 
 clean:
-	$(RM) -rf $(OBJS_DIR)
+	@$(RM) -rf $(OBJS_DIR)
 
 fclean: clean
-	$(RM) $(NAME) $(EXE) main.o
+	@$(RM) $(NAME) $(EXE) main.o
 
 re: fclean all
 
 test : $(OBJS)
-	$(CC) $(CFLAGS) -c $(MAIN_DIR)$(MAIN).c -o $(MAIN_DIR)$(MAIN).o
-	$(CC) -o $(EXE) $(OBJS) $(MAIN_DIR)$(MAIN).o -L./libft/ -lft
+	@$(CC) $(CFLAGS) -c $(MAIN_DIR)$(MAIN).c -o $(MAIN_DIR)$(MAIN).o
+	@$(CC) -o $(EXE) $(OBJS) $(MAIN_DIR)$(MAIN).o -L./libft/ -lft
 
 .PHONY: bonus all clean fclean re libft

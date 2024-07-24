@@ -6,12 +6,15 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:39:25 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/24 13:30:55 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/07/24 17:14:14 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# define GREEN "\033[1;32m"
+# define NC "\033[0m"
 
 # include "libft/libft.h"
 # include <stdio.h>
@@ -33,6 +36,7 @@ typedef struct s_move
 {
 	char	type;
 	int		nb_coup;
+	int		negative;
 }			t_move;
 
 int			*init_list(char **argv, int argc, char type);
@@ -61,7 +65,8 @@ int			ft_rrotate_all(t_info *info);
 int			ft_push_b(t_info *info);
 int			ft_push_a(t_info *info);
 
-long		ft_get_next(t_info *info);
-int			ft_get_worth_move(t_info *info);
+long	ft_get_next(t_info *info, int index);
+long	ft_get_preview(t_info *info, int index);
+t_move	ft_get_worth_move(t_info *info, int index);
 
 #endif
