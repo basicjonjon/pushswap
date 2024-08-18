@@ -6,11 +6,11 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 16:04:14 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/24 13:19:35 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/18 15:37:22 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_verif_finish(t_info *info)
 {
@@ -20,7 +20,7 @@ int	ft_verif_finish(t_info *info)
 	i = 1;
 	temp = info->lst_a[0];
 	if (info->lst_a_count < info->argc - 1)
-		return (0);
+		return (1);
 	while (i < info->argc - 1)
 	{
 		if (temp > info->lst_a[i])
@@ -30,64 +30,64 @@ int	ft_verif_finish(t_info *info)
 	return (0);
 }
 
-int	ft_get_lower(t_info *info)
+int	ft_get_lower(int *lst, int lst_count)
 {
 	int	i;
 	int	lower;
 
 	i = 1;
-	lower = info->lst_a[0];
-	while (i < info->lst_a_count)
+	lower = lst[0];
+	while (i < lst_count)
 	{
-		if (info->lst_a[i] < lower)
-			lower = info->lst_a[i];
+		if (lst[i] < lower)
+			lower = lst[i];
 		i++;
 	}
 	return (lower);
 }
 
-int	ft_get_lower_index(t_info *info)
+int	ft_get_lower_i(int *lst, int lst_count)
 {
 	int	i;
 	int	lower;
 
 	i = 1;
 	lower = 0;
-	while (i < info->lst_a_count)
+	while (i < lst_count)
 	{
-		if (info->lst_a[i] < info->lst_a[lower])
+		if (lst[i] < lst[lower])
 			lower = i;
 		i++;
 	}
 	return (lower);
 }
 
-int	ft_get_upper(t_info *info)
+int	ft_get_upper(int *lst, int lst_count)
 {
 	int	i;
 	int	upper;
 
-	i = 1;
-	upper = info->lst_a[0];
-	while (i < info->lst_a_count)
+	i = 0;
+	upper = lst[0];
+	while (i < lst_count)
 	{
-		if (info->lst_a[i] > upper)
-			upper = info->lst_a[i];
+		if (lst[i] > upper)
+			upper = lst[i];
 		i++;
 	}
 	return (upper);
 }
 
-int	ft_get_upper_index(t_info *info)
+int	ft_get_upper_i(int *lst, int lst_count)
 {
 	int	i;
 	int	upper;
 
-	i = 1;
+	i = 0;
 	upper = 0;
-	while (i < info->lst_a_count)
+	while (i < lst_count)
 	{
-		if (info->lst_a[i] > info->lst_a[upper])
+		if (lst[i] > lst[upper])
 			upper = i;
 		i++;
 	}

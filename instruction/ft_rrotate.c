@@ -6,11 +6,11 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 18:47:34 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/24 17:08:48 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/18 14:36:46 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_rrotate_a(t_info *info, char mod)
 {
@@ -30,6 +30,7 @@ int	ft_rrotate_a(t_info *info, char mod)
 	if (mod == 'b')
 		return (1);
 	ft_printf("rra\n");
+	info->action_count++;
 	return (1);
 }
 
@@ -51,6 +52,7 @@ int	ft_rrotate_b(t_info *info, char mod)
 	if (mod == 'b')
 		return (1);
 	ft_printf("rrb\n");
+	info->action_count++;
 	return (1);
 }
 
@@ -61,5 +63,6 @@ int	ft_rrotate_all(t_info *info)
 	ft_rrotate_a(info, 'b');
 	ft_rrotate_b(info, 'b');
 	ft_printf("rrr\n");
+	info->action_count++;
 	return (1);
 }

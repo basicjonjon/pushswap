@@ -6,11 +6,11 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:51:31 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/17 11:27:25 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/18 13:32:11 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_up_lst(int *lst, int count_lst)
 {

@@ -6,11 +6,11 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 13:19:21 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/22 18:44:02 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/18 14:36:24 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_push_a(t_info *info)
 {
@@ -25,6 +25,7 @@ int	ft_push_a(t_info *info)
 	ft_up_lst(info->lst_b, info->lst_b_count);
 	info->lst_b_count -= 1;
 	ft_printf("pa\n");
+	info->action_count++;
 	return (1);
 }
 
@@ -41,5 +42,6 @@ int	ft_push_b(t_info *info)
 	ft_up_lst(info->lst_a, info->lst_a_count);
 	info->lst_a_count -= 1;
 	ft_printf("pb\n");
+	info->action_count++;
 	return (1);
 }
