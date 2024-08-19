@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:54:07 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/18 17:45:38 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/19 13:50:10 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	main(int argc, char **argv)
 		five_num(info);
 	else
 		undred_num(info);
-	print_lst(info);
 	ft_printf("nb coup = %s %i %s", GREEN, info->action_count, NC);
 	return (0);
 }

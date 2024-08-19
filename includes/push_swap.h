@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:39:25 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/18 17:45:58 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:27:36 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 
 # define GREEN "\033[1;32m"
+# define RED "\033[1;31m"
+# define BLUE "\033[1;34m"
 # define NC "\033[0m"
 
 # include "libft/include/libft.h"
@@ -33,6 +35,7 @@ typedef struct s_info
 }		t_info;
 
 void	print_lst(t_info *info_lst);
+void	print_lst_color(t_info *info_lst, int index);
 int		ft_up_lst(int *lst, int count_lst);
 int		ft_down_lst(int *lst, int count_lst);
 int		*init_list(char **argv, int argc, char type);
