@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:39:25 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/19 17:27:36 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/21 16:13:18 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,23 @@
 typedef struct s_info
 {
 	int	argc;
-	int	lower;
-	int	upper;
+	int	a_lower_i;
+	int	a_upper_i;
+	int	b_lower_i;
+	int	b_upper_i;
 	int	*lst_a;
 	int	*lst_b;
 	int	lst_a_count;
 	int	lst_b_count;
 	int	action_count;
 }		t_info;
+
+typedef struct s_cheap_num
+{
+	int	index_a;
+	int index_b;
+	int score;
+}		t_cheap;
 
 void	print_lst(t_info *info_lst);
 void	print_lst_color(t_info *info_lst, int index);
@@ -64,5 +73,6 @@ int		ft_push_a(t_info *info);
 void	triforce(t_info *info);
 void	five_num(t_info *info);
 void	undred_num(t_info *info);
+void	turk_sort(t_info *info);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:54:07 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/19 13:50:10 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/21 16:48:26 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_info	*init_struct(int argc, char **argv)
 	res->action_count = 0;
 	res->lst_a = init_list(argv, argc, 'a');
 	res->lst_b = init_list(argv, argc, 'b');
-	res->upper = ft_get_upper(res->lst_a, res->lst_a_count);
-	res->lower = ft_get_lower(res->lst_a, res->lst_a_count);
+	res->a_upper_i = ft_get_upper_i(res->lst_a, res->lst_a_count);
+	res->a_lower_i = ft_get_lower_i(res->lst_a, res->lst_a_count);
 	return (res);
 }
 
@@ -36,12 +36,7 @@ int	main(int argc, char **argv)
 		return (1);
 	info = init_struct(argc, argv);
 	print_lst(info);
-	if (info->lst_a_count <= 3)
-		triforce(info);
-	else if (info->lst_a_count <= 5)
-		five_num(info);
-	else
-		undred_num(info);
+	turk_sort(info);
 	ft_printf("nb coup = %s %i %s", GREEN, info->action_count, NC);
 	return (0);
 }

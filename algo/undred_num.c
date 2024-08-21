@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 16:42:39 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/20 17:29:30 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:12:51 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ t_move	get_worth_move(t_info *info)
 		best.b_l *= -1;
 	if (best.b_u < 0)
 		best.b_u *= -1;
-	if (best.b_l < best.b_u || info->lst_b[0] == info->upper)
+	if (best.b_l < best.b_u || info->lst_b[0] ==  info->lst_a[info->a_upper_i])
 		best.type = 'l';
 	else
 		best.type = 'u';
@@ -139,7 +139,7 @@ void	undred_num(t_info *info)
 	int		reverse;
 	t_move	best;
 
-	nb_tour = 2;
+	nb_tour = 3;
 	ft_push_b(info);
 	y = 0;
 	while (info->lst_a_count != 0)

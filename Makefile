@@ -8,7 +8,7 @@ FILES = main
 FILES_B=
 UTILS_FILE = lst_utils verif_utils
 INST_FILE = ft_push ft_swap ft_rotate ft_rrotate
-ALGO_FILE = triforce five_num undred_num
+ALGO_FILE = triforce five_num undred_num turk_sort
 # ALGO_FILE = random
 
 #tout les repertoire 
@@ -66,7 +66,7 @@ $(NAME): $(LIBFT) $(OBJS) $(UTILS_OBJ) $(INST_OBJ) $(ALGO_OBJ)
 	@$(CC) $(CFLAGS) $(OBJS) $(UTILS_OBJ) $(INST_OBJ) $(ALGO_OBJ) $(LIBFT) -o $(NAME)
 	@echo "$@ : $(BLUE)[READY]$(NC)"
 	@echo "\n$(BLUE)================= [ START ] =================$(NC)\n"
-	@./push_swap 78 36 80 74 50 72 9 16 61 92 30 42 11 56 37 87 24 39 54 36 99 40 23 58 53 91 46 89 77 68 73 85 33 90 33 2 58 27 47 69 83 34 26 14 6 28 50 49 25 5 74 1 91 72 29 92 80 5 1 84 72 11 69 29 83 40 71 79 46 10 12 67 90 15 57 92 43 4 54 100 59 33 64 95 55 98 30 22 2 34 48 25 7 30 56 72 94 75 56 14
+	@./push_swap 78 36 80 74 50 72 9 16 61 92 
 
 $(LIBFT):
 	@make -C $(LIBFT_PATH) all

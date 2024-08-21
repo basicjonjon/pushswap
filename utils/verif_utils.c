@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 16:04:14 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/18 15:37:22 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:20:34 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,39 @@ int	ft_verif_finish(t_info *info)
 	return (0);
 }
 
-int	ft_get_lower(int *lst, int lst_count)
-{
-	int	i;
-	int	lower;
+// int	ft_get_lower(int *lst, int lst_count)
+// {
+// 	int	i;
+// 	int	lower;
 
-	i = 1;
-	lower = lst[0];
-	while (i < lst_count)
-	{
-		if (lst[i] < lower)
-			lower = lst[i];
-		i++;
-	}
-	return (lower);
-}
+// 	i = 1;
+// 	lower = lst[0];
+// 	while (i < lst_count)
+// 	{
+// 		if (lst[i] < lower)
+// 			lower = lst[i];
+// 		i++;
+// 	}
+// 	return (lower);
+// }
+
+
+
+// int	ft_get_upper(int *lst, int lst_count)
+// {
+// 	int	i;
+// 	int	upper;
+
+// 	i = 0;
+// 	upper = lst[0];
+// 	while (i < lst_count)
+// 	{
+// 		if (lst[i] > upper)
+// 			upper = lst[i];
+// 		i++;
+// 	}
+// 	return (upper);
+// }
 
 int	ft_get_lower_i(int *lst, int lst_count)
 {
@@ -60,22 +78,6 @@ int	ft_get_lower_i(int *lst, int lst_count)
 		i++;
 	}
 	return (lower);
-}
-
-int	ft_get_upper(int *lst, int lst_count)
-{
-	int	i;
-	int	upper;
-
-	i = 0;
-	upper = lst[0];
-	while (i < lst_count)
-	{
-		if (lst[i] > upper)
-			upper = lst[i];
-		i++;
-	}
-	return (upper);
 }
 
 int	ft_get_upper_i(int *lst, int lst_count)
