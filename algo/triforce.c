@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 13:30:01 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/21 17:31:05 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/22 12:01:01 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,25 @@ int	verif_triforce(t_info *info)
 
 void	triforce(t_info *info)
 {
-	int	lower_i;
+	int	upper_i;
 
 	if (verif_triforce(info))
 		return ;
-	lower_i = ft_get_upper_i(info->lst_a, info->lst_a_count);
-	if (info->lst_a[info->argc - 1] != info->lst_a[info->a_upper_i])
+	update_info(info);
+	upper_i = ft_get_upper_i(info->lst_a, info->lst_a_count);
+	if (info->lst_a[info->lst_a_count - 1] != info->lst_a[upper_i])
 	{
-		if (lower_i < info->lst_a_count / 2)
+		printf("upper_i %i, last num = %i\n", info->lst_a[upper_i], info->lst_a[info->lst_a_count - 1]);
+		if (upper_i < info->lst_a_count / 2)
+		{
+			printf("test2\n");
 			ft_rotate_a(info, 'a');
+		}
 		else
+		{
+			printf("test3\n");
 			ft_rrotate_a(info, 'a');
+		}
 	}
 	if (info->lst_a[0] > info->lst_a[1])
 		ft_swap_a(info, 'a');

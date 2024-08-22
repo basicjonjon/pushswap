@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:39:25 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/21 16:13:18 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/22 11:58:13 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef struct s_info
 typedef struct s_cheap_num
 {
 	int	index_a;
-	int index_b;
-	int score;
+	int	index_b;
+	int	score;
 }		t_cheap;
 
 void	print_lst(t_info *info_lst);
@@ -74,5 +74,7 @@ void	triforce(t_info *info);
 void	five_num(t_info *info);
 void	undred_num(t_info *info);
 void	turk_sort(t_info *info);
+
+void	update_info(t_info *info);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:57:08 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/21 18:03:52 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/22 12:49:36 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,11 +167,13 @@ void	turk_sort(t_info *info)
 		y = 0;
 		update_info(info);
 		hit = get_cost_reverse(info, y);
-		while (y < info->lst_a_count)
+		while (y < info->lst_b_count)
 		{
-			y++;
 			if (get_cost_reverse(info, y).score < hit.score)
+			{
 				hit = get_cost_reverse(info, y);
+			}
+			y++;
 		}
 		i = 0;
 		y = 0;
@@ -212,9 +214,10 @@ void	turk_sort(t_info *info)
 	if (info->a_upper_i != info->lst_a_count - 1)
 	{
 		i = 0;
-		if (info->a_upper_i <= info->lst_a_count / 2)
+		update_info(info);
+		if (info->a_upper_i < info->lst_a_count / 2)
 		{
-			while (i < (info->lst_a_count - 1) - info->a_upper_i)
+			while (i < info->a_upper_i + 1)
 			{
 				ft_rotate_a(info, 'a');
 				i++;
@@ -222,7 +225,7 @@ void	turk_sort(t_info *info)
 		}
 		else
 		{
-			while (i < (info->lst_a_count - 2) - info->a_upper_i)
+			while (i < info->lst_a_count - 1 - info->a_upper_i)
 			{
 				ft_rrotate_a(info, 'a');
 				i++;
