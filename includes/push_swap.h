@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:39:25 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/22 11:58:13 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:14:45 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_cheap_num
 	int	index_a;
 	int	index_b;
 	int	score;
+	int	a_reverse;
+	int	b_reverse;
 }		t_cheap;
 
 void	print_lst(t_info *info_lst);

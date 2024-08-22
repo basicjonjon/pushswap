@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:57:08 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/22 12:49:36 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:26:54 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ int	get_target(t_info *info, int num)
 	while (i < info->lst_b_count)
 	{
 		if (info->lst_b[i] < num && info->lst_b[i] > info->lst_b[target])
-		{
 			target = i;
-		}
 		i++;
 	}
 	return (target);
@@ -51,14 +49,24 @@ int	get_target(t_info *info, int num)
 
 t_cheap	get_cost(t_info *info, int index_num)
 {
-	int		i;
 	int		target_i;
 	t_cheap	res;
 
-	i = 0;
 	target_i = get_target(info, info->lst_a[index_num]);
+	res.a_reverse = 0;
+	res.b_reverse = 0;
 	res.index_a = index_num;
+	if (res.index_a > info->lst_a_count / 2)
+	{
+		res.index_a = info->lst_a_count - index_num;
+		res.a_reverse = 1;
+	}
 	res.index_b = target_i;
+	if (res.index_b > info->lst_b_count / 2)
+	{
+		res.index_b = info->lst_b_count - target_i;
+		res.b_reverse = 1;
+	}
 	res.score = res.index_a + res.index_b;
 	return (res);
 }
@@ -96,69 +104,62 @@ t_cheap	get_cost_reverse(t_info *info, int index_num)
 	res.score = res.index_a + res.index_b;
 	return (res);
 }
+t_cheap	get_hit(t_info *info)
+{
+	t_cheap	hit;
+	int		y;
+
+	y = 0;
+	hit.score = 9999;
+	update_info(info);
+	while (y < info->lst_a_count)
+	{
+		if (get_cost(info, y).score < hit.score)
+			hit = get_cost(info, y);
+		y++;
+	}
+	return (hit);
+}
+
+void	sort_go(t_info *info)
+{
+	int		i;
+	int		y;
+	t_cheap	hit;
+
+	i = 0;
+	y = 0;
+	hit = get_hit(info);
+	while (i < hit.index_a)
+	{
+		if (hit.a_reverse)
+			ft_rrotate_a(info, 'a');
+		else
+			ft_rotate_a(info, 'a');
+		i++;
+	}
+	while (y < hit.index_b)
+	{
+		if (hit.b_reverse)
+			ft_rrotate_b(info, 'a');
+		else
+			ft_rotate_b(info, 'a');
+		y++;
+	}
+	ft_push_b(info);
+}
 
 void	turk_sort(t_info *info)
 {
 	int		i;
 	int		y;
-	int		z;
 	t_cheap	hit;
 
-	i = 0;
-	y = 0;
-	z = -1;
-	while (i < 2)
-	{
-		ft_push_b(info);
-		i++;
-	}
+	ft_push_b(info);
+	ft_push_b(info);
 	while (info->lst_a_count != 3)
 	{
-		i = 0;
-		y = 0;
-		update_info(info);
-		hit = get_cost(info, y);
-		while (y < info->lst_a_count)
-		{
-			y++;
-			if (get_cost(info, y).score < hit.score)
-				hit = get_cost(info, y);
-		}
-		i = 0;
-		y = 0;
-		if (hit.index_a <= info->lst_a_count / 2)
-		{
-			while (i < hit.index_a)
-			{
-				ft_rotate_a(info, 'a');
-				i++;
-			}
-		}
-		else
-		{
-			while (i < (info->lst_a_count - hit.index_a))
-			{
-				ft_rrotate_a(info, 'a');
-				i++;
-			}
-		}
-		if (hit.index_b <= info->lst_b_count / 2)
-		{
-			while (y < hit.index_b)
-			{
-				ft_rotate_b(info, 'a');
-				y++;
-			}
-		}
-		else
-		{
-			while (y < (info->lst_b_count - hit.index_b))
-			{
-				ft_rrotate_b(info, 'a');
-				y++;
-			}
-		}
-		ft_push_b(info);
+		sort_go(info);
 	}
 	triforce(info);
 	while (info->lst_b_count != 0)
