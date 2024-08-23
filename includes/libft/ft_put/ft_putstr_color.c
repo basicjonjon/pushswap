@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 13:42:30 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/18 13:58:52 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:49:37 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_color(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

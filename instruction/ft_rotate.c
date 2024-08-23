@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 13:06:46 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/20 17:12:03 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:47:49 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_rotate_a(t_info *info, char mod)
 {
 	int	i;
 	int	tmp_value;
-	
+
 	if (info->lst_a_count <= 1)
 		return (-1);
 	i = 1;
@@ -38,7 +38,7 @@ int	ft_rotate_b(t_info *info, char mod)
 {
 	int	i;
 	int	tmp_value;
-	
+
 	if (info->lst_b_count <= 1)
 		return (-1);
 	i = 1;
@@ -66,4 +66,3 @@ int	ft_rotate_all(t_info *info)
 	info->action_count++;
 	return (0);
 }
-

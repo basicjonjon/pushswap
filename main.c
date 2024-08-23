@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:54:07 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/23 14:33:18 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:52:21 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ int	main(int argc, char **argv)
 {
 	t_info	*info;
 
-	if (argc <= 2 || !argv)
+	if (argc <= 2)
 		return (1);
 	info = init_struct(argc, argv);
-	// print_lst(info);
-	turk_sort(info);
-	// print_lst(info);
-	// ft_printf("nb coup = %s %i %s", GREEN, info->action_count, NC);
+	if (argc - 1 == 3)
+		triforce(info);
+	else if (argc - 1 <= 5)
+		five_num(info);
+	else
+		turk_sort(info);
 	return (0);
 }

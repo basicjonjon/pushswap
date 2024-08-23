@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 13:05:55 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/29 22:31:26 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:49:53 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	res[s1size + s2size] = '\0';
 	return (res);
 }
-
