@@ -1,4 +1,10 @@
+#extenstion ban
 *.txt
+*.a
+
+#dossier ban
 push_swap_visualizer/
 objet/
-./*
+
+#fichier ban
+push_swap
