@@ -6,20 +6,11 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:57:08 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/23 12:30:32 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/23 14:01:17 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-/*
-	objectif :
-	- prendre un nombre n de la liste a;
-	- regarder combien de coup (vers le haut ou le bas en fonction de la median) pour le ramener en haut;
-	- trouver sa target dans la liste b;
-	- regarder combien de coup pour le ramener en haut;
-	- push le nombre aui "coute" le moin cher;
-*/
 
 void	update_info(t_info *info)
 {
@@ -47,30 +38,6 @@ int	get_target(t_info *info, int num)
 	return (target);
 }
 
-t_cheap	get_cost(t_info *info, int index_num)
-{
-	int		target_i;
-	t_cheap	res;
-
-	target_i = get_target(info, info->lst_a[index_num]);
-	res.a_reverse = 0;
-	res.b_reverse = 0;
-	res.index_a = index_num;
-	if (res.index_a > info->lst_a_count / 2)
-	{
-		res.index_a = info->lst_a_count - index_num;
-		res.a_reverse = 1;
-	}
-	res.index_b = target_i;
-	if (res.index_b > info->lst_b_count / 2)
-	{
-		res.index_b = info->lst_b_count - target_i;
-		res.b_reverse = 1;
-	}
-	res.score = res.index_a + res.index_b;
-	return (res);
-}
-
 int	get_target_reverse(t_info *info, int num)
 {
 	int	i;
@@ -91,23 +58,19 @@ int	get_target_reverse(t_info *info, int num)
 	return (target);
 }
 
-t_cheap	get_cost_reverse(t_info *info, int index_num)
+t_cheap	get_cost(t_info *info, int index_num)
 {
-	int		i;
-	int		target_i;
 	t_cheap	res;
 
-	i = 0;
-	target_i = get_target_reverse(info, info->lst_b[index_num]);
-	res.index_a = target_i;
+	res.index_a = index_num;
+	res.index_b = get_target(info, info->lst_a[index_num]);
 	res.a_reverse = 0;
+	res.b_reverse = 0;
 	if (res.index_a > info->lst_a_count / 2)
 	{
 		res.index_a = info->lst_a_count - res.index_a;
 		res.a_reverse = 1;
 	}
-	res.index_b = index_num;
-	res.b_reverse = 0;
 	if (res.index_b > info->lst_b_count / 2)
 	{
 		res.index_b = info->lst_b_count - res.index_b;
@@ -116,96 +79,74 @@ t_cheap	get_cost_reverse(t_info *info, int index_num)
 	res.score = res.index_a + res.index_b;
 	return (res);
 }
-t_cheap	get_hit(t_info *info)
-{
-	t_cheap	hit;
-	int		y;
 
-	y = 0;
-	hit.score = 9999999;
-	update_info(info);
-	while (y < info->lst_a_count)
+t_cheap	get_cost_reverse(t_info *info, int index_num)
+{
+	t_cheap	res;
+
+	res.index_a = get_target_reverse(info, info->lst_b[index_num]);
+	res.index_b = index_num;
+	res.a_reverse = 0;
+	res.b_reverse = 0;
+	if (res.index_a > info->lst_a_count / 2)
 	{
-		if (get_cost(info, y).score < hit.score)
-			hit = get_cost(info, y);
-		y++;
+		res.index_a = info->lst_a_count - res.index_a;
+		res.a_reverse = 1;
 	}
-	return (hit);
+	if (res.index_b > info->lst_b_count / 2)
+	{
+		res.index_b = info->lst_b_count - res.index_b;
+		res.b_reverse = 1;
+	}
+	res.score = res.index_a + res.index_b;
+	return (res);
 }
 
-t_cheap	get_hit_reverse(t_info *info)
+t_cheap	get_hit(t_info *info, int mod)
 {
 	t_cheap	hit;
-	int		y;
+	int		i;
 
-	y = 0;
+	i = -1;
 	hit.score = 9999999;
 	update_info(info);
-	while (y < info->lst_b_count)
-	{
-		if (get_cost_reverse(info, y).score < hit.score)
+	if (!mod)
+		while (++i < info->lst_a_count)
 		{
-			hit = get_cost_reverse(info, y);
+			if (get_cost(info, i).score < hit.score)
+				hit = get_cost(info, i);
 		}
-		y++;
-	}
+	else
+		while (++i < info->lst_b_count)
+		{
+			if (get_cost_reverse(info, i).score < hit.score)
+				hit = get_cost_reverse(info, i);
+		}
 	return (hit);
 }
 
-void	sort_go(t_info *info)
+void	move_list(t_info *info, int mod)
 {
 	int		i;
-	int		y;
 	t_cheap	hit;
 
-	i = 0;
-	y = 0;
-	hit = get_hit(info);
-	while (i < hit.index_a)
+	i = -1;
+	hit = get_hit(info, mod);
+	while (++i < hit.index_a)
 	{
 		if (hit.a_reverse)
 			ft_rrotate_a(info, 'a');
 		else
 			ft_rotate_a(info, 'a');
-		i++;
 	}
-	while (y < hit.index_b)
+	i = -1;
+	while (++i < hit.index_b)
 	{
 		if (hit.b_reverse)
 			ft_rrotate_b(info, 'a');
 		else
 			ft_rotate_b(info, 'a');
-		y++;
 	}
-	ft_push_b(info);
-}
-
-void	sort_back(t_info *info)
-{
-	int		i;
-	t_cheap	hit;
-
-	i = 0;
-	hit = get_hit_reverse(info);
-	print_lst(info);
-	while (i < hit.index_a)
-	{
-		if (hit.a_reverse)
-			ft_rrotate_a(info, 'a');
-		else
-			ft_rotate_a(info, 'a');
-		i++;
-	}
-	i = 0;
-	while (i < hit.index_b)
-	{
-		if (hit.b_reverse)
-			ft_rrotate_b(info, 'a');
-		else
-			ft_rotate_b(info, 'a');
-		i++;
-	}
-	ft_push_a(info);
 }
 
 void	turk_sort(t_info *info)
@@ -217,33 +158,22 @@ void	turk_sort(t_info *info)
 	ft_push_b(info);
 	while (info->lst_a_count != 3)
 	{
-		sort_go(info);
+		move_list(info, 0);
+		ft_push_b(info);
 	}
 	triforce(info);
 	while (info->lst_b_count != 0)
 	{
-		sort_back(info);
+		move_list(info, 1);
+		ft_push_a(info);
 	}
-	// if (info->a_upper_i != info->lst_a_count - 1)
-	// {
-	// 	i = 0;
-	// 	update_info(info);
-	// 	if (info->a_upper_i < info->lst_a_count / 2)
-	// 	{
-	// 		while (i < info->a_upper_i + 1)
-	// 		{
-	// 			ft_rotate_a(info, 'a');
-	// 			i++;
-	// 		}
-	// 	}
-	// 	else
-	// 	{
-	// 		while (i < info->lst_a_count - 1 - info->a_upper_i)
-	// 		{
-	// 			ft_rrotate_a(info, 'a');
-	// 			i++;
-	// 		}
-	// 	}
-	// }
-	print_lst(info);
+	update_info(info);
+	while (info->a_lower_i != 0)
+	{
+		if (info->a_lower_i <= info->lst_a_count / 2)
+			ft_rotate_a(info, 'a');
+		else
+			ft_rrotate_a(info, 'a');
+		update_info(info);
+	}
 }

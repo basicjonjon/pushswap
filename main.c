@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:54:07 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/22 11:58:31 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/23 14:33:18 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ int	main(int argc, char **argv)
 	if (argc <= 2 || !argv)
 		return (1);
 	info = init_struct(argc, argv);
-	print_lst(info);
+	// print_lst(info);
 	turk_sort(info);
-	ft_printf("nb coup = %s %i %s", GREEN, info->action_count, NC);
+	// print_lst(info);
+	// ft_printf("nb coup = %s %i %s", GREEN, info->action_count, NC);
 	return (0);
 }
