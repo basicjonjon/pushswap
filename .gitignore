@@ -5,6 +5,7 @@
 #dossier ban
 push_swap_visualizer/
 objet/
+.vscode/
 
 #fichier ban
 push_swap
