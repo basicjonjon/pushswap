@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:51:31 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/23 16:47:09 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/25 16:05:59 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_down_lst(int *lst, int count_lst)
 	if (count_lst == 0)
 		return (-1);
 	i = count_lst - 1;
-	while (i >= 0)
+	while (i > 0)
 	{
 		lst[i] = lst[i - 1];
 		i--;
@@ -55,57 +55,28 @@ int	*init_list(char **argv, int argc, char type)
 	if (type == 'a')
 	{
 		res = malloc(sizeof(int) * (argc - 1));
+		if (!res)
+		{
+			return (NULL);
+		}
 		while (i < (argc - 1))
 			res[i++] = ft_atoi(argv[y++]);
 	}
 	else
+	{
 		res = ft_calloc(argc, sizeof(int));
+		if (!res)
+		{
+			return (NULL);
+		}
+	}
 	return (res);
 }
 
-int	r_all(t_info *info, t_cheap hit)
+void	update_info(t_info *info)
 {
-	int	i;
-
-	i = 0;
-	if (hit.a_reverse == hit.b_reverse)
-	{
-		while (i < hit.index_a && i < hit.index_b)
-		{
-			if (hit.a_reverse)
-				ft_rrotate_all(info);
-			else
-				ft_rotate_all(info);
-			i++;
-		}
-	}
-	return (i);
-}
-
-void	move_list(t_info *info, int mod)
-{
-	int		i;
-	int		save_i;
-	t_cheap	hit;
-
-	hit = get_hit(info, mod);
-	i = r_all(info, hit);
-	save_i = i;
-	while (i < hit.index_a)
-	{
-		if (hit.a_reverse)
-			ft_rrotate_a(info, 'a');
-		else
-			ft_rotate_a(info, 'a');
-		i++;
-	}
-	i = save_i;
-	while (i < hit.index_b)
-	{
-		if (hit.b_reverse)
-			ft_rrotate_b(info, 'a');
-		else
-			ft_rotate_b(info, 'a');
-		i++;
-	}
+	info->a_upper_i = ft_get_upper_i(info->lst_a, info->lst_a_count);
+	info->a_lower_i = ft_get_lower_i(info->lst_a, info->lst_a_count);
+	info->b_upper_i = ft_get_upper_i(info->lst_b, info->lst_b_count);
+	info->b_lower_i = ft_get_lower_i(info->lst_b, info->lst_b_count);
 }

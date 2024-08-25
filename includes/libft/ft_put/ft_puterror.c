@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   triforce.c                                         :+:      :+:    :+:   */
+/*   ft_puterror.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/18 13:30:01 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 13:58:01 by jle-doua         ###   ########.fr       */
+/*   Created: 2024/08/25 14:48:11 by jle-doua          #+#    #+#             */
+/*   Updated: 2024/08/25 15:27:46 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../include/libft.h"
 
-void	triforce(t_info *info)
+void	ft_puterror(char *str)
 {
-	int	upper_i;
-
-	update_info(info);
-	upper_i = ft_get_upper_i(info->lst_a, info->lst_a_count);
-	if (info->lst_a[info->lst_a_count - 1] != info->lst_a[upper_i])
+	if (!str)
 	{
-		if (upper_i < info->lst_a_count / 2)
-		{
-			ft_rotate_a(info, 'a');
-		}
-		else
-		{
-			ft_rrotate_a(info, 'a');
-		}
+		write(2, "\033[1;31mError\033[0m\n", 18);
 	}
-	if (info->lst_a[0] > info->lst_a[1])
-		ft_swap_a(info, 'a');
+	else
+	{
+		write(2, "\033[1;31m", 8);
+		write(2, str, ft_strlen(str));
+		write(2, "\033[0m\n", 6);
+	}
 }

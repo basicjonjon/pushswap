@@ -6,18 +6,11 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 10:20:56 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/07/29 22:24:41 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:13:05 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
-
-static int	ft_isspace(int c)
-{
-	if (c == '\t' | c == '\n' | c == '\r' | c == '\v' | c == '\f' | c == ' ')
-		return (1);
-	return (0);
-}
 
 int	ft_atoi(const char *str)
 {

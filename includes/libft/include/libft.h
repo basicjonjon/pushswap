@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:58:52 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/18 13:44:49 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:27:36 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,38 @@ typedef struct s_list
 int					ft_atoi(const char *str);
 void				ft_bzero(void *tab, size_t n);
 void				*ft_calloc(size_t nelement, size_t size);
+char				*ft_itoa(int n);
+char				**ft_split(char const *s, char c);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
+void				ft_putstr_color(char *str);
+
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
-char				*ft_itoa(int n);
+int					ft_isspace(int c);
+
 void				*ft_memchr(void *mem, int search, size_t n);
 void				*ft_memchr(void *mem, int search, size_t n);
 int					ft_memcmp(const void *mem1, const void *mem2, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 void				*ft_memmove(void *dest, const void *src, size_t n);
 void				*ft_memset(void *mem, int value, size_t n);
+
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
-char				**ft_split(char const *s, char c);
+void				ft_puterror(char *str);
+int					ft_printf(const char *str, ...);
+int					ft_putchar(int c);
+int					ft_putstr(char *str);
+int					ft_putnbr(int n);
+int					ft_putunsigned(unsigned int n);
+int					ft_putnbrbase(unsigned int n, char *base);
+int					ft_putadresse(void *a, char *base);
+
 char				*ft_strchr(const char *str, int c);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_strdup(const char *str);
@@ -56,10 +71,9 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnstr(const char *search, const char *find, size_t n);
 char				*ft_strrchr(const char *str, int c);
-char				*ft_substr(char const *s, unsigned int start, size_t len);
+
 int					ft_tolower(int c);
 int					ft_toupper(int c);
-void				ft_putstr_color(char *str);
 
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
@@ -72,11 +86,4 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
-int					ft_printf(const char *str, ...);
-int					ft_putchar(int c);
-int					ft_putstr(char *str);
-int					ft_putnbr(int n);
-int					ft_putunsigned(unsigned int n);
-int					ft_putnbrbase(unsigned int n, char *base);
-int					ft_putadresse(void *a, char *base);
 #endif

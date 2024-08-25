@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   triforce.c                                         :+:      :+:    :+:   */
+/*   repeat_verification.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/18 13:30:01 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 13:58:01 by jle-doua         ###   ########.fr       */
+/*   Created: 2024/08/25 15:45:36 by jle-doua          #+#    #+#             */
+/*   Updated: 2024/08/25 15:52:52 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	triforce(t_info *info)
+int repeat_verification(t_info *info)
 {
-	int	upper_i;
+	int i;
+	int y;
+	int value;
 
-	update_info(info);
-	upper_i = ft_get_upper_i(info->lst_a, info->lst_a_count);
-	if (info->lst_a[info->lst_a_count - 1] != info->lst_a[upper_i])
+	i = 0;
+	while (i < info->lst_a_count)
 	{
-		if (upper_i < info->lst_a_count / 2)
+		y = i + 1;
+		value = info->lst_a[i];
+		while (y < info->lst_a_count)
 		{
-			ft_rotate_a(info, 'a');
+			if (value == info->lst_a[y])
+			{
+				return (1);
+			}
+			y++;
 		}
-		else
-		{
-			ft_rrotate_a(info, 'a');
-		}
+		i++;
 	}
-	if (info->lst_a[0] > info->lst_a[1])
-		ft_swap_a(info, 'a');
+	return (0);
 }

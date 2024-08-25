@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   triforce.c                                         :+:      :+:    :+:   */
+/*   hit_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/18 13:30:01 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 13:58:01 by jle-doua         ###   ########.fr       */
+/*   Created: 2024/08/25 12:10:34 by jle-doua          #+#    #+#             */
+/*   Updated: 2024/08/25 13:50:59 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	triforce(t_info *info)
+t_cheap	get_hit(t_info *info, int mod)
 {
-	int	upper_i;
+	int 	i;
+	t_cheap hit;
 
+	i = -1;
+	hit.score = 9999999;
 	update_info(info);
-	upper_i = ft_get_upper_i(info->lst_a, info->lst_a_count);
-	if (info->lst_a[info->lst_a_count - 1] != info->lst_a[upper_i])
+	if (!mod)
 	{
-		if (upper_i < info->lst_a_count / 2)
+		while (++i < info->lst_a_count)
 		{
-			ft_rotate_a(info, 'a');
-		}
-		else
-		{
-			ft_rrotate_a(info, 'a');
+			if (get_cost(info, i).score < hit.score)
+				hit = get_cost(info, i);
 		}
 	}
-	if (info->lst_a[0] > info->lst_a[1])
-		ft_swap_a(info, 'a');
+	else
+	{
+		while (++i < info->lst_b_count)
+		{
+			if (get_cost_reverse(info, i).score < hit.score)
+				hit = get_cost_reverse(info, i);
+		}
+	}
+	return (hit);
 }

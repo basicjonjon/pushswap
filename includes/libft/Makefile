@@ -6,7 +6,7 @@
 #    By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 15:15:00 by jle-doua          #+#    #+#              #
-#    Updated: 2024/08/18 13:45:28 by jle-doua         ###   ########.fr        #
+#    Updated: 2024/08/25 15:26:53 by jle-doua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ PUT =	ft_putchar_fd \
 		ft_putnbrbase \
 		ft_putchar \
 		ft_putadresse \
-		ft_putstr_color
+		ft_putstr_color \
+		ft_puterror
 
 STR	=	ft_strlen \
 		ft_strlcpy \
@@ -54,7 +55,8 @@ IS = 	ft_isalpha \
 		ft_isdigit \
 		ft_isalnum \
 		ft_isascii \
-		ft_isprint
+		ft_isprint \
+		ft_isspace
 
 TO = 	ft_toupper \
 		ft_tolower

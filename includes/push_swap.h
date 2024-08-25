@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:39:25 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/23 16:35:13 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/25 16:02:14 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,16 @@ typedef struct s_cheap_num
 }		t_cheap;
 
 void	print_lst(t_info *info_lst);
+
 int		ft_up_lst(int *lst, int count_lst);
 int		ft_down_lst(int *lst, int count_lst);
 int		*init_list(char **argv, int argc, char type);
+void	update_info(t_info *info);
+void	move_list(t_info *info, int mod);
 
-int		ft_verif_finish(t_info *info);
-int		ft_get_upper(int *lst, int lst_count);
-int		ft_get_lower(int *lst, int lst_count);
 int		ft_get_lower_i(int *lst, int lst_count);
 int		ft_get_upper_i(int *lst, int lst_count);
+int		ft_verif_finish(t_info *info);
 
 int		ft_swap_all(t_info *info);
 int		ft_swap_a(t_info *info, char mod);
@@ -72,17 +73,17 @@ int		ft_push_b(t_info *info);
 int		ft_push_a(t_info *info);
 
 void	triforce(t_info *info);
-void	five_num(t_info *info);
-void	undred_num(t_info *info);
 void	turk_sort(t_info *info);
 
-void	update_info(t_info *info);
 int		get_target(t_info *info, int num);
 int		get_target_reverse(t_info *info, int num);
 t_cheap	get_cost(t_info *info, int index_num);
 t_cheap	get_cost_reverse(t_info *info, int index_num);
 
 t_cheap	get_hit(t_info *info, int mod);
-void	move_list(t_info *info, int mod);
+
+int		ft_verif_args(int argc, char **argv);
+
+int		repeat_verification(t_info *info);
 
 #endif

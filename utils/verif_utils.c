@@ -6,29 +6,11 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 16:04:14 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/23 13:56:00 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/25 15:34:54 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-int	ft_verif_finish(t_info *info)
-{
-	int	i;
-	int	temp;
-
-	i = 1;
-	temp = info->lst_a[0];
-	if (info->lst_a_count < info->argc - 1)
-		return (1);
-	while (i < info->argc - 1)
-	{
-		if (temp > info->lst_a[i])
-			return (1);
-		temp = info->lst_a[i++];
-	}
-	return (0);
-}
 
 int	ft_get_lower_i(int *lst, int lst_count)
 {
@@ -60,4 +42,22 @@ int	ft_get_upper_i(int *lst, int lst_count)
 		i++;
 	}
 	return (upper);
+}
+
+int	ft_verif_finish(t_info *info)
+{
+	int	i;
+	int	temp;
+
+	i = 1;
+	temp = info->lst_a[0];
+	if (info->lst_a_count < info->argc - 1)
+		return (1);
+	while (i < info->argc - 1)
+	{
+		if (temp > info->lst_a[i])
+			return (1);
+		temp = info->lst_a[i++];
+	}
+	return (0);
 }
