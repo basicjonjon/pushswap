@@ -6,17 +6,17 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 15:45:36 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 15:52:52 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/26 11:14:51 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int repeat_verification(t_info *info)
+int	repeat_verification(t_info *info)
 {
-	int i;
-	int y;
-	int value;
+	int	i;
+	int	y;
+	int	value;
 
 	i = 0;
 	while (i < info->lst_a_count)

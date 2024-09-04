@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 16:04:14 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 15:34:54 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:08:56 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,13 @@ int	ft_verif_finish(t_info *info)
 	i = 1;
 	temp = info->lst_a[0];
 	if (info->lst_a_count < info->argc - 1)
-		return (1);
+		return (0);
 	while (i < info->argc - 1)
 	{
 		if (temp > info->lst_a[i])
-			return (1);
-		temp = info->lst_a[i++];
+			return (0);
+		temp = info->lst_a[i];
+		i++;
 	}
-	return (0);
+	return (1);
 }

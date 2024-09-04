@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 10:54:07 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 16:10:38 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:10:55 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,17 @@ int	main(int argc, char **argv)
 {
 	t_info	*info;
 
-	if (argc <= 2 || ft_verif_args(argc, argv))
-	{
-		ft_puterror(NULL);
-		return (1);
-	}
+	if (ft_verif_args(argc, argv))
+		return (ft_puterror(NULL), 1);
+	if (argc <= 2)
+		return (0);
 	info = init_struct(argc, argv);
 	if (!info)
-	{
-		ft_puterror(NULL);
-		return (1);
-	}
+		return (ft_puterror(NULL), 1);
 	if (repeat_verification(info))
-	{
-		ft_puterror(NULL);
-		free_all(info);
-		return (1);
-	}
+		return (ft_puterror(NULL), free_all(info), 1);
+	if (ft_verif_finish(info))
+		return (free_all(info), 0);
 	if (argc - 1 <= 3)
 		triforce(info);
 	else

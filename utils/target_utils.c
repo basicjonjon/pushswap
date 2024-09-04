@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:18:10 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 12:14:37 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/26 11:13:43 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,3 @@ int	get_target_reverse(t_info *info, int num)
 	}
 	return (target);
 }
-
-
-
-

@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 14:32:52 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 15:29:58 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/26 11:14:41 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ int	is_not_integer(char *str)
 
 int	ft_verif_args(int argc, char **argv)
 {
-	int i;
+	int	i;
+
 	i = 1;
 	while (i < argc)
 	{

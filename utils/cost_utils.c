@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 12:08:33 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 12:09:39 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/26 11:12:55 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_cheap	get_cost(t_info *info, int index_num)
 
 t_cheap	get_cost_reverse(t_info *info, int index_num)
 {
-	t_cheap res;
+	t_cheap	res;
 
 	res.index_a = get_target_reverse(info, info->lst_b[index_num]);
 	res.index_b = index_num;

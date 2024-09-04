@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 12:10:34 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 13:50:59 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/08/26 11:14:07 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_cheap	get_hit(t_info *info, int mod)
 {
-	int 	i;
-	t_cheap hit;
+	int		i;
+	t_cheap	hit;
 
 	i = -1;
 	hit.score = 9999999;
