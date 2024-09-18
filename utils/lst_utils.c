@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 11:51:31 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 16:05:59 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:54:56 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,32 +44,13 @@ int	ft_down_lst(int *lst, int count_lst)
 	return (0);
 }
 
-int	*init_list(char **argv, int argc, char type)
+int	*init_list_b(int argc)
 {
-	int	i;
-	int	y;
 	int	*res;
 
-	i = 0;
-	y = 1;
-	if (type == 'a')
-	{
-		res = malloc(sizeof(int) * (argc - 1));
-		if (!res)
-		{
-			return (NULL);
-		}
-		while (i < (argc - 1))
-			res[i++] = ft_atoi(argv[y++]);
-	}
-	else
-	{
-		res = ft_calloc(argc, sizeof(int));
-		if (!res)
-		{
-			return (NULL);
-		}
-	}
+	res = ft_calloc(argc, sizeof(int));
+	if (!res)
+		return (NULL);
 	return (res);
 }
 

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puterror.c                                      :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 14:48:11 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/09/18 12:49:55 by jle-doua         ###   ########.fr       */
+/*   Created: 2024/09/09 16:17:58 by jle-doua          #+#    #+#             */
+/*   Updated: 2024/09/16 11:25:48 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../includes/push_swap.h"
 
-void	ft_puterror(char *str)
+int	ft_error(int argc, char **argv)
 {
-	if (!str)
-		write(2, "\033[1;31mError\033[0m\n", 18);
-	else
+	int	i;
+
+	i = 1;
+	while (i < argc)
 	{
-		write(2, "\033[1;31m", 8);
-		write(2, str, ft_strlen(str));
-		write(2, "\033[0m\n", 6);
+		if (args_have_char(argv[i]))
+			return (1);
+		i++;
 	}
+	if (args_have_intmin_intmax(argc, argv))
+		return (1);
+	return (0);
 }

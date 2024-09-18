@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puterror.c                                      :+:      :+:    :+:   */
+/*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 14:48:11 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/09/18 12:49:55 by jle-doua         ###   ########.fr       */
+/*   Created: 2024/09/09 15:58:32 by jle-doua          #+#    #+#             */
+/*   Updated: 2024/09/12 16:59:48 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../includes/push_swap.h"
 
-void	ft_puterror(char *str)
+void	free_all(t_info *info)
 {
-	if (!str)
-		write(2, "\033[1;31mError\033[0m\n", 18);
-	else
+	free(info->lst_a);
+	free(info->lst_b);
+}
+
+void	ft_free_bidimentional_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
 	{
-		write(2, "\033[1;31m", 8);
-		write(2, str, ft_strlen(str));
-		write(2, "\033[0m\n", 6);
+		free(tab[i]);
+		i++;
 	}
+	free(tab);
 }

@@ -6,7 +6,7 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:58:52 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/25 15:27:36 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/09/10 15:24:46 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int					ft_atoi(const char *str);
 void				ft_bzero(void *tab, size_t n);
 void				*ft_calloc(size_t nelement, size_t size);
 char				*ft_itoa(int n);
@@ -74,6 +73,9 @@ char				*ft_strrchr(const char *str, int c);
 
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+
+int					ft_atoi(const char *str);
+long				ft_atol(const char *str);
 
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);

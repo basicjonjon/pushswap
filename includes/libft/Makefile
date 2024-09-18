@@ -6,7 +6,7 @@
 #    By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/01 15:15:00 by jle-doua          #+#    #+#              #
-#    Updated: 2024/08/25 15:26:53 by jle-doua         ###   ########.fr        #
+#    Updated: 2024/09/10 15:23:25 by jle-doua         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,11 +62,13 @@ TO = 	ft_toupper \
 		ft_tolower
 
 OTHER = ft_bzero \
-		ft_atoi \
 		ft_calloc \
 		ft_substr \
 		ft_split \
 		ft_itoa
+
+ATO =   ft_atoi \
+		ft_atol
 
 LST = 	ft_lstnew \
 	  	ft_lstadd_front \
@@ -86,6 +88,7 @@ PRINTF_DIR 	= ./ft_printf/
 IS_DIR 		= ./ft_is/
 TO_DIR 		= ./ft_to/
 OTHER_DIR 	= ./ft_other/
+ATO_DIR 	= ./ft_ato/
 LST_DIR 	= ./ft_lst/
 
 MEM_C	 = $(addprefix $(MEM_DIR), $(addsuffix .c, $(MEM)))
@@ -95,6 +98,7 @@ PRINTF_C = $(addprefix $(PRINTF_DIR), $(addsuffix .c, $(PRINTF)))
 IS_C	 = $(addprefix $(IS_DIR), $(addsuffix .c, $(IS)))
 TO_C	 = $(addprefix $(TO_DIR), $(addsuffix .c, $(TO)))
 OTHER_C	 = $(addprefix $(OTHER_DIR), $(addsuffix .c, $(OTHER)))
+ATO_C	 = $(addprefix $(ATO_DIR), $(addsuffix .c, $(ATO)))
 LST_C	 = $(addprefix $(LST_DIR), $(addsuffix .c, $(LST)))
 
 MEM_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(MEM)))
@@ -104,9 +108,10 @@ PRINTF_O = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(PRINTF)))
 IS_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(IS)))
 TO_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(TO)))
 OTHER_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(OTHER)))
+ATO_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(ATO)))
 LST_O	 = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(LST)))
 
-OBJS = $(MEM_O) $(PUT_O) $(STRS_O) $(PRINTF_O) $(IS_O) $(TO_O) $(OTHER_O) $(LST_O)
+OBJS = $(MEM_O) $(PUT_O) $(STRS_O) $(PRINTF_O) $(IS_O) $(TO_O) $(OTHER_O) $(LST_O) $(ATO_O)
 
 $(OBJS_DIR)%.o: $(MEM_DIR)%.c
 	@mkdir -p $(OBJS_DIR)
@@ -133,6 +138,10 @@ $(OBJS_DIR)%.o: $(TO_DIR)%.c
 	@$(CC) $(CFLAGS) -c -o $@ $<
 
 $(OBJS_DIR)%.o: $(OTHER_DIR)%.c
+	@mkdir -p $(OBJS_DIR)
+	@$(CC) $(CFLAGS) -c -o $@ $<
+
+$(OBJS_DIR)%.o: $(ATO_DIR)%.c
 	@mkdir -p $(OBJS_DIR)
 	@$(CC) $(CFLAGS) -c -o $@ $<
 

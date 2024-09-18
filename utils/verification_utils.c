@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   repeat_verification.c                              :+:      :+:    :+:   */
+/*   verification_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 15:45:36 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/26 11:14:51 by jle-doua         ###   ########.fr       */
+/*   Created: 2024/07/12 16:04:14 by jle-doua          #+#    #+#             */
+/*   Updated: 2024/09/16 11:21:11 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	repeat_verification(t_info *info)
+int	verif_is_string(char *s)
+{
+	if (ft_count_args_string(s) > 1)
+		return (1);
+	return (0);
+}
+
+int	verif_is_finish(t_info info)
 {
 	int	i;
-	int	y;
-	int	value;
 
 	i = 0;
-	while (i < info->lst_a_count)
+	while (i < info.lst_a_count - 1)
 	{
-		y = i + 1;
-		value = info->lst_a[i];
-		while (y < info->lst_a_count)
-		{
-			if (value == info->lst_a[y])
-			{
-				return (1);
-			}
-			y++;
-		}
+		if (info.lst_a[i] > info.lst_a[i + 1])
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }

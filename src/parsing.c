@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puterror.c                                      :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 14:48:11 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/09/18 12:49:55 by jle-doua         ###   ########.fr       */
+/*   Created: 2024/09/10 15:51:26 by jle-doua          #+#    #+#             */
+/*   Updated: 2024/09/12 17:00:57 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../includes/push_swap.h"
 
-void	ft_puterror(char *str)
+int	*ft_parse_args(int argc, char **argv)
 {
-	if (!str)
-		write(2, "\033[1;31mError\033[0m\n", 18);
+	int	*res;
+
+	res = NULL;
+	if (argc == 2)
+	{
+		if (verif_is_string(argv[1]))
+			res = ft_parse_string_args(argv);
+		else
+			return (NULL);
+	}
 	else
 	{
-		write(2, "\033[1;31m", 8);
-		write(2, str, ft_strlen(str));
-		write(2, "\033[0m\n", 6);
+		res = ft_parse_separate_args(argc, argv);
 	}
+	if (!res)
+		return (NULL);
+	return (res);
 }

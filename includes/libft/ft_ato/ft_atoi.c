@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puterror.c                                      :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 14:48:11 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/09/18 12:49:55 by jle-doua         ###   ########.fr       */
+/*   Created: 2024/05/20 10:20:56 by jle-doua          #+#    #+#             */
+/*   Updated: 2024/09/12 16:57:10 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-void	ft_puterror(char *str)
+int	ft_atoi(const char *str)
 {
-	if (!str)
-		write(2, "\033[1;31mError\033[0m\n", 18);
-	else
-	{
-		write(2, "\033[1;31m", 8);
-		write(2, str, ft_strlen(str));
-		write(2, "\033[0m\n", 6);
-	}
+	int	i;
+	int	count;
+	int	res;
+
+	i = 0;
+	count = 0;
+	res = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	while (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			count++;
+	while (str[i] >= '0' && str[i] <= '9')
+		res = res * 10 + (str[i++] - '0');
+	if (count % 2)
+		res *= -1;
+	return (res);
 }

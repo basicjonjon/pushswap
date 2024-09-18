@@ -6,11 +6,43 @@
 /*   By: jle-doua <jle-doua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:18:10 by jle-doua          #+#    #+#             */
-/*   Updated: 2024/08/26 11:13:43 by jle-doua         ###   ########.fr       */
+/*   Updated: 2024/09/09 15:54:41 by jle-doua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	ft_get_lower_i(int *lst, int lst_count)
+{
+	int	i;
+	int	lower;
+
+	i = 1;
+	lower = 0;
+	while (i < lst_count)
+	{
+		if (lst[i] < lst[lower])
+			lower = i;
+		i++;
+	}
+	return (lower);
+}
+
+int	ft_get_upper_i(int *lst, int lst_count)
+{
+	int	i;
+	int	upper;
+
+	i = 0;
+	upper = 0;
+	while (i < lst_count)
+	{
+		if (lst[i] >= lst[upper])
+			upper = i;
+		i++;
+	}
+	return (upper);
+}
 
 int	get_target(t_info *info, int num)
 {
